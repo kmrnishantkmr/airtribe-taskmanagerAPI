@@ -82,7 +82,7 @@ taskroute.put('/',(req,resp) => {
                 if (ValidationResult.status){
                     const writepath = path.join(__dirname,"..","task.json");
                     const taskDataModified = JSON.parse(JSON.stringify(tasks));
-                    taskDataModified.push(taskDetailPassed);
+                    taskDataModified.push(taskbodyPassed);
                     try{
                         fs.writeFileSync(writepath,JSON.stringify(taskDataModified),{encoding:'utf-8',flag:'w'})
                         resp.status(200).json({"message":"Task has been added successfully"});
